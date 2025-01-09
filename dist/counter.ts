@@ -47,7 +47,7 @@
         let hour = Math.floor((time % (60 * 60 * 24)) / (60 * 60));
         let minute = Math.floor((time % (60 * 60)) / 60);
         let second = Math.floor(time % 60);
-        return `${day}d ${hour}h ${minute}m ${second}s`;
+        return `${day}天 ${hour}时 ${minute}分 ${second}秒`;
     }
 
     loop()
