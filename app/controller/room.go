@@ -22,6 +22,6 @@ func Room(c *gin.Context) {
 func ReadIndex() {
 	var err error
 	if RawFile, err = os.ReadFile(config.DistPath + "/room.html"); err != nil {
-		log.Fatalf("cant find %s/room.html: %s", config.DistPath, err)
+		log.Fatalf("无法找到 %s/room.html: %s", config.DistPath, err)
 	}
 }
