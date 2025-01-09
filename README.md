@@ -39,4 +39,70 @@ docker run -d --name time-counter \
 
 ```
 
+### 用法
+
+1. ifranme 引入 
+
+```
+<center><iframe frameborder=0  height=50px marginwidth=0 scrolling=no src="http://你的服务地址/room/{Room ID}"></iframe></center>
+```
+
+2. js引入
+
+```
+<script src="http://你的服务地址/counter.js" async="" id="online-counter" interval="240" api="http://你的服务地址/counter" room="{Room ID}"></script>
+
+
+本站当前在线人数 <span style="color: red;" id="online_user"></span> 人
+
+你的在线总时间:  <span style="color: red;" id="online_me"></span>
+
+全站在线总时间:  <span style="color: red;" id="online_total"></span>
+```
+
+3. pjax（例如 Hexo butterfly 主题，若开启了全局播放器 请使用此方案）
+
+```
+// 若您的网站有 Pjax 等局部热加载技术，请参考以下代码（Pjax 似乎会忽略 script 的标签内传值）。
+
+
+      
+
+本站当前在线人数 <span style="color: red;" id="online_user"></span> 人  
+
+你的在线总时间:  <span style="color: red;" id="online_me"></span> 
+
+全站在线总时间:  <span style="color: red;" id="online_total"></span>
+
+<script>
+
+    (
+
+function () {  
+getOnlineUser()
+function getOnlineUser() {
+    // 移除之前的 online-counter
+    let oldScript = document.getElementById("online-counter");
+    if (oldScript) {
+        oldScript.remove();
+    }
+    //create script
+    let script = document.createElement("script");
+    script.src = "http://你的服务地址/counter.js";
+    script.async = true;
+    script.id = "online-counter";
+    script.setAttribute("interval", 240);
+    script.setAttribute("api", "http://你的服务地址/counter");
+    script.setAttribute("room", "{Room ID}");
+    document.head.appendChild(script);
+}
+}
+)()
+
+</script>
+```
+
+
+
+
 
