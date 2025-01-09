@@ -18,17 +18,17 @@ var (
 var configPath string
 
 func init() {
-	flag.StringVar(&configPath, "c", "config.yaml", "config file path")
-	flag.StringVar(&DistPath, "d", "dist", "dist path")
+	flag.StringVar(&configPath, "c", "config.yaml", "指定配置文件config.yaml的路径")
+	flag.StringVar(&DistPath, "d", "dist", "指定dist路径")
 	flag.Parse()
 
 	data, err := os.ReadFile(configPath)
 	if err != nil {
-		log.Fatalf("Error reading config file: %v \r\n", err.Error())
+		log.Fatalf("读取配置文件错误: %v \r\n", err.Error())
 	}
 	Config = &ConfigStruct{}
 	if err = yaml.Unmarshal(data, Config); err != nil {
-		log.Fatalf("Error parsing config file: %v \r\n", err.Error())
+		log.Fatalf("解析配置文件错误: %v \r\n", err.Error())
 	}
 
 	// READ FROM ENV
