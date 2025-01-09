@@ -35,7 +35,7 @@
             n = Math.floor(e % 86400 / 3600), 
             o = Math.floor(e % 3600 / 60), 
             r = Math.floor(e % 60); 
-        return "".concat(t, "d ").concat(n, "h ").concat(o, "m ").concat(r, "s"); 
+        return "".concat(t, "天 ").concat(n, "时 ").concat(o, "分 ").concat(r, "秒"); 
     }; 
     r(); 
 })();
