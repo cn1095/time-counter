@@ -109,6 +109,7 @@
         script.async = true;
         script.id = 'online-counter';
         script.setAttribute('interval', 500);
+	script.setAttribute('api', '/counter')
         script.setAttribute('svg', svgStatus); // 根据开关传递 'true' 或空值
         script.setAttribute('room', room);
         document.head.appendChild(script);
