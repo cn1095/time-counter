@@ -20,7 +20,7 @@
                         let data = res.data;
 
                         // 根据 svgFlag 判断是否生成 SVG
-                        if (svgFlag) {
+                        if (svgFlag === true) {
                             // 更新 SVG 图像
                             updateSvg("online_user", "在线人数", `${data.online_user}人`);
                             updateSvg("online_me", "你的访问时长", formatTime(data.online_me));
