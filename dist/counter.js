@@ -4,7 +4,7 @@
     t = e.getAttribute("interval") || "2000";
     n = e.getAttribute("room") || "";
     o = e.getAttribute("api") || "http://localhost:8080/counter";
-    svgFlag = e.getAttribute("svg") || "false"; // 判断是否需要生成 SVG
+    svgFlag = e.getAttribute("svg") || ""; // 判断是否需要生成 SVG
     r = function () {
         var e = new XMLHttpRequest,
             l = o;
@@ -20,7 +20,7 @@
                         let data = res.data;
 
                         // 根据 svgFlag 判断是否生成 SVG
-                        if (svgFlag === true) {
+                        if (svgFlag) {
                             // 更新 SVG 图像
                             updateSvg("online_user", "在线人数", `${data.online_user}人`);
                             updateSvg("online_me", "你的访问时长", formatTime(data.online_me));
