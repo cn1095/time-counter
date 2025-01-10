@@ -2,7 +2,7 @@
     let current = document.currentScript,
         interval = current.getAttribute("interval") || "2000",
         room = current.getAttribute("room") || "",
-        svgFlag = current.getAttribute("svg") || "false", // 判断是否需要生成 SVG
+        svgFlag = current.getAttribute("svg") || "", // 判断是否需要生成 SVG
         api = current.getAttribute("api") || "http://localhost:8080/counter";
 
     const loop = () => {
@@ -24,7 +24,7 @@
                         let data = res.data;
 
                         // 判断是否使用 SVG 更新
-                        if (svgFlag === "true") {
+                        if (svgFlag) {
                             // 使用 updateSvg 更新 SVG 图像
                             updateSvg("online_user", "在线人数", `${data.online_user}人`);
                             updateSvg("online_me", "你的访问时长", formatTime(data.online_me));
