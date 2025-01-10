@@ -19,8 +19,8 @@ func Counter(c *gin.Context) {
 	room := c.Query("room")
 
 	// check if room in white list
-	if len(room) >= 10 {
-		api.Fail("room must less than 10 characters")
+	if len(room) >= 30 {
+		api.Fail("房间号必须在30个字符以内！")
 		return
 	}
 
