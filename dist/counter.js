@@ -4,6 +4,7 @@
     t = e.getAttribute("interval") || "2000";
     n = e.getAttribute("room") || "";
     o = e.getAttribute("api") || "http://localhost:8080/counter";
+    svgFlag = e.getAttribute("svg") || "false"; // 判断是否需要生成 SVG
     r = function () {
         var e = new XMLHttpRequest,
             l = o;
@@ -18,10 +19,18 @@
                     if (res.success === true) {
                         let data = res.data;
 
-                        // 更新 SVG 图像
-                        updateSvg("online_user", "在线人数", `${data.online_user}人`);
-                        updateSvg("online_me", "你的访问时长", formatTime(data.online_me));
-                        updateSvg("online_total", "本站访问总时长", formatTime(data.online_total));
+                        // 根据 svgFlag 判断是否生成 SVG
+                        if (svgFlag) {
+                            // 更新 SVG 图像
+                            updateSvg("online_user", "在线人数", `${data.online_user}人`);
+                            updateSvg("online_me", "你的访问时长", formatTime(data.online_me));
+                            updateSvg("online_total", "本站访问总时长", formatTime(data.online_total));
+                        } else {
+                            // 更新页面元素
+                            document.getElementById("online_user").innerHTML = data.online_user;
+                            document.getElementById("online_me").innerHTML = formatTime(data.online_me);
+                            document.getElementById("online_total").innerHTML = formatTime(data.online_total);
+                        }
 
                         // 设置 token
                         let setToken = e.getResponseHeader("Set-Token");
