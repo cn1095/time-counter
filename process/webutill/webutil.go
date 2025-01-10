@@ -28,9 +28,9 @@ func Init() {
 
 	// run service
 	log.SetOutput(os.Stdout)
-	log.Printf("server listening on: %s", config.Server.Address)
+	log.Printf("服务器监听中，地址为: %s", config.Server.Address)
 	err := r.Run(config.Server.Address)
 	if err != nil {
-		log.Fatalf("error when start web server: %s", err.Error())
+		log.Fatalf("启动 web 服务时出错: %s", err.Error())
 	}
 }
