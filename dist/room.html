@@ -2,18 +2,14 @@
 <html lang="en">
 
 <head>
-    <title>在线用户测试</title>
+    <title>在线用户</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="/counter.js" async="" id="online-counter" interval="500" api="/counter" room="{{.room}}"></script>
 </head>
 
 <body style="padding: 4em">
-    <h2>设置房间</h2>
-    <label>房间:{{.room}}</label>
-
-    <h2>在线用户状态</h2>
-    <p>在线用户: <span style="color: red;" id="online_user"></span></p>
-    <p>我的在线时间: <span style="color: red;" id="online_me"></span></p>
-    <p>总在线时间: <span style="color: red;" id="online_total"></span></p>
+    <p>在线人数:  <span style="color: red;" id="online_user"></span></p>
+    <p>你的访问时长:  <span style="color: red;" id="online_me"></span></p>
+    <p>站点访问总时长:  <span style="color: red;" id="online_total"></span></p>
 </body>
 </html>
