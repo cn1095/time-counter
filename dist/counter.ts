@@ -2,6 +2,7 @@
     let current = document.currentScript,
         interval = current.getAttribute("interval") || "2000",
         room = current.getAttribute("room") || "",
+        svgFlag = current.getAttribute("svg") || "false", // 判断是否需要生成 SVG
         api = current.getAttribute("api") || "http://localhost:8080/counter";
 
     const loop = () => {
@@ -22,10 +23,18 @@
                     if (res.success === true) {
                         let data = res.data;
 
-                        // 更新 SVG 图像
-                        updateSvg("online_user", "在线人数", `${data.online_user}人`);
-                        updateSvg("online_me", "你的访问时长", formatTime(data.online_me));
-                        updateSvg("online_total", "本站访问总时长", formatTime(data.online_total));
+                        // 判断是否使用 SVG 更新
+                        if (svgFlag === "true") {
+                            // 使用 updateSvg 更新 SVG 图像
+                            updateSvg("online_user", "在线人数", `${data.online_user}人`);
+                            updateSvg("online_me", "你的访问时长", formatTime(data.online_me));
+                            updateSvg("online_total", "本站访问总时长", formatTime(data.online_total));
+                        } else {
+                            // 使用 innerHTML 更新页面元素
+                            document.getElementById("online_user").innerHTML = data.online_user;
+                            document.getElementById("online_me").innerHTML = formatTime(data.online_me);
+                            document.getElementById("online_total").innerHTML = formatTime(data.online_total);
+                        }
 
                         // 设置 token
                         let setToken = xhr.getResponseHeader("Set-Token");
