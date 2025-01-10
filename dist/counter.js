@@ -1,24 +1,20 @@
-(function () {
-    let current = document.currentScript,
-        interval = current.getAttribute("interval") || "2000",
-        room = current.getAttribute("room") || "",
-        api = current.getAttribute("api") || "http://localhost:8080/counter";
-
-    const loop = () => {
-        let xhr = new XMLHttpRequest();
-
-        let url = api;
-        if (room !== "") url = `${api}?room=${room}`;
-
-        xhr.open("GET", url, true);
-
-        let token = localStorage.getItem("token");
-        if (token != null) xhr.setRequestHeader("Authorization", "Bearer " + token);
-
-        xhr.onload = () => {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    let res = JSON.parse(xhr.responseText);
+(() => {
+    var e, t, n, o, r, a;
+    e = document.currentScript;
+    t = e.getAttribute("interval") || "2000";
+    n = e.getAttribute("room") || "";
+    o = e.getAttribute("api") || "http://localhost:8080/counter";
+    r = function () {
+        var e = new XMLHttpRequest,
+            l = o;
+        "" != n && (l = "".concat(o, "?room=").concat(n));
+        e.open("GET", l, !0);
+        var c = localStorage.getItem("token");
+        null != c && e.setRequestHeader("Authorization", "Bearer " + c);
+        e.onload = () => {
+            if (e.readyState === 4) {
+                if (e.status === 200) {
+                    let res = JSON.parse(e.responseText);
                     if (res.success === true) {
                         let data = res.data;
 
@@ -28,12 +24,12 @@
                         updateSvg("online_total", "本站访问总时长", formatTime(data.online_total));
 
                         // 设置 token
-                        let setToken = xhr.getResponseHeader("Set-Token");
-                        if (token == null && setToken != null) {
+                        let setToken = e.getResponseHeader("Set-Token");
+                        if (c == null && setToken != null) {
                             localStorage.setItem("token", setToken);
                         }
 
-                        setTimeout(loop, parseInt(interval));
+                        setTimeout(r, parseInt(t));
                     } else {
                         alert(res.message);
                         console.error(res.message);
@@ -41,7 +37,7 @@
                 }
             }
         };
-        xhr.send();
+        e.send();
     };
 
     // 时间格式化
@@ -69,31 +65,29 @@
 
         // 左侧矩形路径
         let leftRectPath = document.createElementNS(svgNS, "path");
-        leftRectPath.setAttribute("d", `
-            M3 0 
+        leftRectPath.setAttribute("d", 
+            `M3 0 
             h${leftTextWidth - 3} 
             v20 
             h-${leftTextWidth - 3} 
             a3 3 0 0 1 -3 -3 
             v-14 
             a3 3 0 0 1 3 -3 
-            z
-        `);
+            z`);
         leftRectPath.setAttribute("fill", "#515151");
         svg.appendChild(leftRectPath);
 
         // 右侧矩形路径
         let rightRectPath = document.createElementNS(svgNS, "path");
-        rightRectPath.setAttribute("d", `
-            M${leftTextWidth} 0 
+        rightRectPath.setAttribute("d", 
+            `M${leftTextWidth} 0 
             h${rightTextWidth - 3} 
             a3 3 0 0 1 3 3 
             v14 
             a3 3 0 0 1 -3 3 
             h-${rightTextWidth - 3} 
             v-20 
-            z
-        `);
+            z`);
         rightRectPath.setAttribute("fill", "#95c10d");
         svg.appendChild(rightRectPath);
 
@@ -137,5 +131,5 @@
         return context.measureText(text).width;
     };
 
-    loop();
+    r();
 })();
