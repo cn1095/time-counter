@@ -18,8 +18,8 @@ go build -o time-counter main.go
 
 6. 打开 浏览器 ip:端口 可以看到房间效果 以及嵌入网页的效果
 
-<img width="799" height="668" alt="图片" src="https://github.com/user-attachments/assets/08a6605d-6e4d-4733-84c9-b4ae8479da9c" />
-<img width="800" height="109" alt="图片" src="https://github.com/user-attachments/assets/58068e54-364b-429d-a9eb-659025a192e4" />
+<img width="692" height="647" alt="图片" src="https://github.com/user-attachments/assets/c3b2079e-97b9-47e9-822c-7ec431f96859" />
+<img width="800" height="109" alt="" src="https://github.com/user-attachments/assets/58068e54-364b-429d-a9eb-659025a192e4" />
 
 ### Docker
 
