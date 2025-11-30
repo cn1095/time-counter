@@ -24,9 +24,11 @@ go build -o time-counter main.go
 ### Docker
 
 ```shell
+# 创建数据库目录
 mkdir /opt/redis
 mkdir /opt/time-counter
 
+# 部署Redis数据库 设置连接密码 123456
 docker run -d --name redis -v /opt/redis:/data redis:alpine redis-server --requirepass 123456
 
 docker run -d --name time-counter \
