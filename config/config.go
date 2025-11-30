@@ -24,6 +24,11 @@ func init() {
 	help := flag.Bool("h", false, "显示帮助信息")
 	
 	flag.Parse()
+	
+	if *help {  
+		flag.Usage()  
+		os.Exit(0)  
+	}
 
 	data, err := os.ReadFile(configPath)
 	if err != nil {
