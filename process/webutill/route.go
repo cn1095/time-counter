@@ -2,8 +2,8 @@ package webutill
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/soxft/time-counter/app/controller"
-	"github.com/soxft/time-counter/config"
+	"github.com/cn1095/time-counter/app/controller"
+	"github.com/cn1095/time-counter/config"
 )
 
 func initRoute(r *gin.Engine) {

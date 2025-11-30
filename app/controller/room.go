@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"github.com/soxft/time-counter/config"
+	"github.com/cn1095/time-counter/config"
 	"log"
 	"net/http"
 	"os"

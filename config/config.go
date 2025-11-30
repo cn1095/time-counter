@@ -19,7 +19,10 @@ var configPath string
 
 func init() {
 	flag.StringVar(&configPath, "c", "config.yaml", "指定配置文件config.yaml的路径")
-	flag.StringVar(&DistPath, "d", "dist", "指定dist路径")
+	flag.StringVar(&DistPath, "d", "dist", "指定前端文件目录")
+	
+	help := flag.Bool("h", false, "显示帮助信息")
+	
 	flag.Parse()
 
 	data, err := os.ReadFile(configPath)

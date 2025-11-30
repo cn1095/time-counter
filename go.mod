@@ -1,4 +1,4 @@
-module github.com/soxft/time-counter
+module github.com/cn1095/time-counter
 
 go 1.18
 

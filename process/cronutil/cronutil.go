@@ -3,9 +3,9 @@ package cronutil
 import (
 	"github.com/gomodule/redigo/redis"
 	"github.com/robfig/cron"
-	"github.com/soxft/time-counter/config"
-	"github.com/soxft/time-counter/global"
-	"github.com/soxft/time-counter/process/redisutil"
+	"github.com/cn1095/time-counter/config"
+	"github.com/cn1095/time-counter/global"
+	"github.com/cn1095/time-counter/process/redisutil"
 	"log"
 	"time"
 )

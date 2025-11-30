@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/gomodule/redigo/redis"
-	"github.com/soxft/time-counter/config"
+	"github.com/cn1095/time-counter/config"
 )
 
 var R *redis.Pool

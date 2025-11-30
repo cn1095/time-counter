@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/soxft/time-counter/app/controller"
-	"github.com/soxft/time-counter/global"
-	"github.com/soxft/time-counter/process/cronutil"
-	"github.com/soxft/time-counter/process/redisutil"
-	"github.com/soxft/time-counter/process/webutill"
+	"github.com/cn1095/time-counter/app/controller"
+	"github.com/cn1095/time-counter/global"
+	"github.com/cn1095/time-counter/process/cronutil"
+	"github.com/cn1095/time-counter/process/redisutil"
+	"github.com/cn1095/time-counter/process/webutill"
 )
 
 func main() {

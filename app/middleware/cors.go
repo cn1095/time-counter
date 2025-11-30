@@ -4,8 +4,8 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/soxft/time-counter/config"
-	"github.com/soxft/time-counter/utils/toolutil"
+	"github.com/cn1095/time-counter/config"
+	"github.com/cn1095/time-counter/utils/toolutil"
 )
 
 func Cors() gin.HandlerFunc {

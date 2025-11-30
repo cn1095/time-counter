@@ -1,15 +1,15 @@
 package controller
 
 import (
-	"github.com/soxft/time-counter/global"
+	"github.com/cn1095/time-counter/global"
 	"log"
 	"time"
 
 	"github.com/gin-gonic/gin"
 	redi "github.com/gomodule/redigo/redis"
-	"github.com/soxft/time-counter/config"
-	"github.com/soxft/time-counter/process/redisutil"
-	"github.com/soxft/time-counter/utils/apiutil"
+	"github.com/cn1095/time-counter/config"
+	"github.com/cn1095/time-counter/process/redisutil"
+	"github.com/cn1095/time-counter/utils/apiutil"
 )
 
 func Counter(c *gin.Context) {

@@ -5,8 +5,8 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"github.com/soxft/time-counter/app/middleware"
-	"github.com/soxft/time-counter/config"
+	"github.com/cn1095/time-counter/app/middleware"
+	"github.com/cn1095/time-counter/config"
 )
 
 func Init() {
